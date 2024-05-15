@@ -2,12 +2,14 @@ group 'fr.g123k.flutterappbadge.flutterappbadger'
 version '1.0-SNAPSHOT'
 
 buildscript {
+    ext.kotlin_version = '1.8.10'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10"
         classpath 'com.android.tools.build:gradle:8.1.4'
     }
 }
@@ -20,11 +22,12 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     namespace "fr.g123k.flutterappbadge.flutterappbadger"
 
-    compileSdk 29
+    compileSdk 34
 
     defaultConfig {
         minSdkVersion 16
@@ -38,4 +41,5 @@ android {
 dependencies {
     //noinspection GradleDependency
     implementation "me.leolin:ShortcutBadger:1.1.22@aar"
+    implementation 'androidx.core:core-ktx:1.13.1'
 }
